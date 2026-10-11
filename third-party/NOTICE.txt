@@ -1,0 +1,14 @@
+TagLibSharp 2.3.0 — LGPL-2.1-only
+Copyright the TagLib# contributors; see AUTHORS in the source archive.
+
+ShuffleDrop loads the unmodified TagLibSharp.dll dynamically for metadata reading.
+You may modify/rebuild the library and replace it with a compatible DLL.
+Reverse engineering to debug modifications to the library is permitted.
+The application license does not restrict these rights.
+
+TagLibSharp-LICENSE.txt contains the LGPL 2.1 license.
+taglib-sharp-2.3.0-source.zip contains corresponding library sources and build files
+from tag TaglibSharp-2.3.0.0. Large test media are excluded; library sources are unchanged.
+Build src/TaglibSharp/TaglibSharp.csproj for net462 with an appropriate .NET SDK.
+https://github.com/mono/taglib-sharp/tree/TaglibSharp-2.3.0.0
+https://www.nuget.org/packages/TagLibSharp/2.3.0

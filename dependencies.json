@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "Krypton.Toolkit",
+    "License": "BSD-3-Clause",
+    "Version": "90.25.2.55",
+    "Framework": "net472"
+  },
+  {
+    "Id": "NAudio.Core",
+    "License": "MIT",
+    "Version": "2.2.1",
+    "Framework": "netstandard2.0"
+  },
+  {
+    "Id": "NAudio.Wasapi",
+    "License": "MIT",
+    "Version": "2.2.1",
+    "Framework": "netstandard2.0"
+  },
+  {
+    "Id": "TagLibSharp",
+    "License": "LGPL-2.1-only",
+    "Version": "2.3.0",
+    "Framework": "net462"
+  }
+]
