@@ -71,6 +71,6 @@ namespace ShuffleDrop
             }
         }
         static Exception Bad(string path)
-        { return new InvalidDataException("Netinkamas, nepalaikomas arba nepilnas MP3 failas: " + Path.GetFileName(path)); }
+        { return new InvalidDataException("Invalid, unsupported, or incomplete MP3 file: " + Path.GetFileName(path)); }
     }
 }

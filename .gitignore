@@ -12,6 +12,7 @@ lib/
 diagnostics/
 dist/
 dist-next/
+dist-en/
 tests/*.dll
 tests/last-results.txt
 ShuffleDrop-Windows.zip

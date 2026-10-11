@@ -16,4 +16,4 @@ Never use a connected iPod as a disposable test device. Device writes should rem
 - Do not upload songs, serial numbers, device database dumps, or personal backups.
 - Keep changes focused. For substantial UI or format changes, open an issue to discuss the approach.
 
-English localization, accessibility improvements, and real-hardware compatibility reports are especially welcome.
+Accessibility improvements and real-hardware compatibility reports are especially welcome.

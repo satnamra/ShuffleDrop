@@ -18,4 +18,5 @@ foreach ($taskDoc in @('README.md','LICENSE','SOURCES.md')) { Copy-Item -Literal
 Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'third-party') -Destination $taskOutput -Recurse -Force
 New-Item -ItemType Directory -Path (Join-Path $taskOutput 'docs') -Force | Out-Null
 Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'docs\README.lt.md') -Destination (Join-Path $taskOutput 'docs\README.lt.md') -Force
+Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'installer\Start-here.txt') -Destination (Join-Path $taskOutput 'START-HERE.txt') -Force
 Write-Output "Built: $taskOutput\ShuffleDrop.exe"

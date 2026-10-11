@@ -17,7 +17,7 @@ namespace ShuffleDrop
         public static void Put(byte[] b, int p, uint n) { Buffer.BlockCopy(BitConverter.GetBytes(n), 0, b, p, 4); }
         static void Bounds(byte[] b, int p, int n)
         { if (p < 0 || n < 0 || p > b.Length - n) throw Invalid(); }
-        static Exception Invalid() { return new InvalidDataException("Neatpažintas arba sugadintas „iPod“ muzikos sąrašas. Įrenginys nebus keičiamas."); }
+        static Exception Invalid() { return new InvalidDataException("The iPod library is unsupported or damaged. The device will not be changed."); }
         static void Magic(byte[] b, int p, string s)
         { Bounds(b, p, 4); if (Encoding.ASCII.GetString(b, p, 4) != s) throw Invalid(); }
         static byte[] Slice(byte[] b, int p, int n)
@@ -58,7 +58,7 @@ namespace ShuffleDrop
                 if (U(b, cursor + 4) != 372) throw Invalid();
                 byte[] t = Slice(b, cursor, 372);
                 string path = TrackPath(t);
-                if (!paths.Add(path)) throw new InvalidDataException("Muzikos sąraše yra pasikartojančių failų kelių. Šis sąrašas kol kas nepalaikomas.");
+                if (!paths.Add(path)) throw new InvalidDataException("The library contains duplicate file paths. This library layout is not supported yet.");
                 d.Tracks.Add(t); cursor += 372;
             }
             if (cursor != ph) throw Invalid();
@@ -109,13 +109,13 @@ namespace ShuffleDrop
                 byte[] record = new byte[558]; record[1] = 2; record[2] = 46; record[3] = 90; record[4] = 165; record[5] = 1;
                 record[26] = 100; record[29] = 1; record[31] = 2; record[555] = 1;
                 byte[] name = Encoding.Unicode.GetBytes(devicePath);
-                if (name.Length > 520) throw new InvalidDataException("Per ilgas failo kelias.");
+                if (name.Length > 520) throw new InvalidDataException("The file path is too long.");
                 name.CopyTo(record, 33); Tracks.Add(record); return;
             }
             byte[] t = new byte[372]; Encoding.ASCII.GetBytes("rths").CopyTo(t, 0);
             Put(t, 4, 372); Put(t, 12, duration); Put(t, 20, 1);
             byte[] path = Encoding.UTF8.GetBytes(devicePath);
-            if (path.Length >= 256) throw new InvalidDataException("Per ilgas failo kelias.");
+            if (path.Length >= 256) throw new InvalidDataException("The file path is too long.");
             path.CopyTo(t, 24); t[284] = 1;
             Put(t, 288, 512); Put(t, 292, 512); t[316] = 1;
             Buffer.BlockCopy(id, 0, t, 328, 8);
@@ -157,12 +157,12 @@ namespace ShuffleDrop
         {
             int count = Tracks.Count;
             if (order.Count > count || order.Distinct().Count() != order.Count || order.Any(i => i < 0 || i >= count))
-                throw new InvalidDataException("Netinkama dainų tvarka.");
+                throw new InvalidDataException("Invalid track order.");
             bool deleting = order.Count != count;
             if (!Legacy)
             {
                 if (deleting && (U(Header, 32) != count || Playlists.Any(p => U(p, 8) != U(p, 12))))
-                    throw new InvalidDataException("Bibliotekoje yra tinklalaidžių arba audioknygų. Jų šalinimas šioje versijoje nepalaikomas.");
+                    throw new InvalidDataException("This library contains podcasts or audiobooks. Removing them is not supported in this version.");
                 var map = new Dictionary<int, int>(); for (int i = 0; i < order.Count; i++) map.Add(order[i], i);
                 for (int i = 0; i < Playlists.Count; i++)
                 {

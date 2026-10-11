@@ -1,0 +1,17 @@
+ShuffleDrop 0.3.1 — iPod music manager
+
+1. Open ShuffleDrop from the Start menu or desktop.
+2. Connect an initialized iPod Shuffle. Library shows the tracks already on it.
+3. Double-click a track to listen on your computer.
+4. Open Add music, choose MP3 files, and click Transfer to iPod.
+5. Safely eject your player using Windows when finished.
+
+Switch between light and dark mode at the bottom of the sidebar.
+Battery percentage reading is not supported.
+This is an experimental release. Export important music before changing the library.
+Playback of newly transferred tracks on physical hardware has not yet been verified.
+
+No iTunes installation is required. Requires .NET Framework 4.7.2 or later.
+Windows N editions may need the Microsoft Media Feature Pack for audio preview.
+Uninstall using the Windows apps list. Local music backups are preserved.
+For more information, see README.md or Help in the app.

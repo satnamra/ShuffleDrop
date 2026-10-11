@@ -4,16 +4,16 @@
 
 **A free, open-source Windows music manager for iPod Shuffle — without iTunes.**
 
-Browse music already on your player, add MP3 files, listen on your computer, export songs, and arrange playback order. Includes light and dark themes. The current interface is in Lithuanian.
+Browse music already on your player, add MP3 files, listen on your computer, export songs, and arrange playback order. Includes light and dark themes. The app and installer are in English.
 
-**[Download for Windows](https://github.com/satnamra/ShuffleDrop/releases/tag/v0.3.0)** · **[Lietuviška instrukcija](docs/README.lt.md)** · **[Report a problem](https://github.com/satnamra/ShuffleDrop/issues)**
+**[Download for Windows](https://github.com/satnamra/ShuffleDrop/releases/tag/v0.3.1)** · **[Lietuviška instrukcija](docs/README.lt.md)** · **[Report a problem](https://github.com/satnamra/ShuffleDrop/issues)**
 
 ## Install
 
-1. Open the release page above and download **ShuffleDrop-Setup-0.3.0.exe**.
+1. Open the release page above and download **ShuffleDrop-Setup-0.3.1.exe**.
 2. Run the installer, then open ShuffleDrop from the Start menu.
-3. Connect an already initialized iPod Shuffle. Existing songs appear in **Biblioteka**.
-4. Open **Pridėti muziką**, choose MP3 files, then select **Perkelti į iPod**.
+3. Connect an already initialized iPod Shuffle. Existing songs appear in **Library**.
+4. Open **Add music**, choose MP3 files, then select **Transfer to iPod**.
 5. Use Windows to safely eject the player when finished.
 
 The installer includes all app libraries and installs for the current user without administrator rights. Requires **.NET Framework 4.7.2 or later** on Windows. Windows N editions may need Microsoft's Media Feature Pack for audio preview. The release is not digitally signed.
@@ -70,7 +70,7 @@ The installer and SHA-256 file appear in `releases`. Optional `UITests.cs` and `
 
 Bug reports, hardware compatibility reports, translations, and pull requests are welcome. Include the Shuffle generation, Windows version, app version, and whether importing, on-device playback, and recovery were tested. Remove personal information from logs or screenshots.
 
-English localization and broader physical-device testing would be useful contributions. See [CONTRIBUTING.md](CONTRIBUTING.md).
+Broader physical-device testing and accessibility improvements would be useful contributions. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License and acknowledgments
 

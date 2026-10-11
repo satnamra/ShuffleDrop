@@ -28,7 +28,7 @@ static class UITests
             Check(((ListView)Get(f,"queue")).Items.Count==0,"missing import file skipped");
             f.SetTheme(false,false); Check(list.BackColor==System.Drawing.Color.White,"light mode changes library surface"); f.SetTheme(true,false); Check(list.BackColor==Theme.Surface && list.BackColor!=System.Drawing.Color.White,"dark mode changes library surface");
             Call(f,"SwitchPage",false); Check(((PageHost)Get(f,"tabs")).SelectedTab==(ContentPage)Get(f,"libraryTab"),"sidebar returns to library");
-            Check(((LinkLabel)Get(f,"batteryInfo")).Text.Contains("nepalaikomas"),"battery limitation explicit"); f.Close();
+            Check(((LinkLabel)Get(f,"batteryInfo")).Text.Contains("unavailable"),"battery limitation explicit"); f.Close();
         }
         return 0;
     }

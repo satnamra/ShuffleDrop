@@ -67,13 +67,13 @@ namespace ShuffleDrop
     }
     internal sealed class ThemeToggle : CheckBox
     {
-        public ThemeToggle() { AutoSize=false; Size=new Size(170,36); Cursor=Cursors.Hand; Text="Tamsi tema"; SetStyle(ControlStyles.UserPaint|ControlStyles.OptimizedDoubleBuffer,true); }
+        public ThemeToggle() { AutoSize=false; Size=new Size(170,36); Cursor=Cursors.Hand; Text="Dark mode"; SetStyle(ControlStyles.UserPaint|ControlStyles.OptimizedDoubleBuffer,true); }
         protected override void OnPaint(PaintEventArgs e)
         {
             e.Graphics.Clear(BackColor); e.Graphics.SmoothingMode=SmoothingMode.AntiAlias;
             using(var path=Art.Round(new Rectangle(124,8,38,21),10))using(var b=new SolidBrush(Checked?Theme.Accent:Theme.Border))e.Graphics.FillPath(b,path);
             using(var b=new SolidBrush(Checked?Theme.Side:Color.White))e.Graphics.FillEllipse(b,Checked?144:127,11,15,15);
-            TextRenderer.DrawText(e.Graphics,Checked?"Tamsi tema":"Šviesi tema",Font,new Rectangle(0,0,120,36),Theme.Text,TextFormatFlags.VerticalCenter);
+            TextRenderer.DrawText(e.Graphics,Checked?"Dark mode":"Light mode",Font,new Rectangle(0,0,120,36),Theme.Text,TextFormatFlags.VerticalCenter);
             if(Focused) ControlPaint.DrawFocusRectangle(e.Graphics,ClientRectangle);
         }
     }
@@ -82,7 +82,7 @@ namespace ShuffleDrop
         double fraction;
         public double Fraction { get { return fraction; } set { fraction=Math.Max(0,Math.Min(1,value)); Invalidate(); } }
         public event Action<double> SeekRequested;
-        public SeekBar() { Height=24; Cursor=Cursors.Hand; SetStyle(ControlStyles.UserPaint|ControlStyles.OptimizedDoubleBuffer|ControlStyles.ResizeRedraw,true); AccessibleName="Dainos eiga"; TabStop=true; }
+        public SeekBar() { Height=24; Cursor=Cursors.Hand; SetStyle(ControlStyles.UserPaint|ControlStyles.OptimizedDoubleBuffer|ControlStyles.ResizeRedraw,true); AccessibleName="Track position"; TabStop=true; }
         protected override void OnPaint(PaintEventArgs e)
         { e.Graphics.Clear(BackColor); using(var b=new SolidBrush(Theme.Border))e.Graphics.FillRectangle(b,0,Height/2-2,Width,4); using(var b=new SolidBrush(Theme.Accent)){e.Graphics.FillRectangle(b,0,Height/2-2,(int)(Width*fraction),4); if(Enabled)e.Graphics.FillEllipse(b,Math.Max(0,(int)((Width-10)*fraction)),Height/2-5,10,10);} }
         protected override void OnMouseDown(MouseEventArgs e) { base.OnMouseDown(e); Focus(); if(Enabled && SeekRequested!=null)SeekRequested((double)e.X/Math.Max(1,Width)); }

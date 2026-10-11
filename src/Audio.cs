@@ -22,7 +22,7 @@ namespace ShuffleDrop
         public void Play(string path)
         {
             Dispose(); playbackError = null;
-            if (!File.Exists(path)) throw new IOException("Dainos failas nepasiekiamas. Patikrink, ar iPod prijungtas.");
+            if (!File.Exists(path)) throw new IOException("The audio file is unavailable. Check that your iPod is connected.");
             try
             {
                 reader = new MediaFoundationReader(path);
@@ -32,7 +32,7 @@ namespace ShuffleDrop
                 output.PlaybackStopped += delegate(object sender, StoppedEventArgs e) { if (ReferenceEquals(output, current)) playbackError = e.Exception; };
                 output.Init(channel); output.Play();
             }
-            catch (Exception e) { Dispose(); throw new IOException("Nepavyko paleisti dainos. Patikrink Windows garso išvestį ir failo formatą.\n" + e.Message, e); }
+            catch (Exception e) { Dispose(); throw new IOException("Could not play this track. Check your Windows audio output and the file format.\n" + e.Message, e); }
         }
         public void PauseResume()
         {
